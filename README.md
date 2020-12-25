@@ -1,2 +1,2 @@
 # pyalbum
-django album
+flask album
