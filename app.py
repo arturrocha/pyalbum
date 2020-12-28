@@ -7,6 +7,7 @@ app = Flask(__name__)
 def home():
     path = 'static/pictures/'
     years = os.listdir(path)
+    years.sort()
     return render_template('home.html', years=years)
 
 
@@ -15,8 +16,7 @@ def show_months(year):
     path = f'static/pictures/{year}/'
     my_filter = ['.DS_Store']
     months = [month for month in os.listdir(path)  if month not in my_filter]
-    months = months.sorted()
-    print(months)
+    months.sort()
     return render_template('year.html', months=months, year=year)
 
 
