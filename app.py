@@ -24,10 +24,20 @@ def show_months(year):
 def show_pics(period):
     year = period.split('_')[0]
     month = period.split('_')[1]
+    page = int(period.split('_')[2])
     path = f'static/pictures/{year}/{month}/'
     pics = os.listdir(path)
     path = f'pictures/{year}/{month}/'
     my_filter = ['.DS_Store', '.mov']
+    end = (page * 20) -1
+    start = end - 19
     pics = [path + pic for pic in pics
             if not any(pic.endswith(f) for f in my_filter)]
-    return render_template('pics.html', pics=pics)
+    size = len(pics)
+    if end > size:
+        pics = pics[start:]
+        next_page = False
+    else:
+        pics = pics[start:end]
+        next_page = True
+    return render_template('pics.html', pics=pics, page=page, next_page=next_page, year=year, month=month)

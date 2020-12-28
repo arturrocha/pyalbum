@@ -1,6 +1,13 @@
 <!doctype html>
 <title>Hello from Flask</title>
-<a href="http://192.168.0.251:8000/">Home</a>
+<h1><a href="http://192.168.0.251:8000/">Home</a></h1>
+{% if page != 1 %}
+  <h2><a href="http://192.168.0.251:8000{{ url_for('home') }}/pics/{{ year }}_{{ month }}_{{ page - 1 }}">Previous Page</a></h2>
+{% endif %}
+{% if next_page %}
+  <h2><a href="http://192.168.0.251:8000{{ url_for('home') }}/pics/{{ year }}_{{ month }}_{{ page + 1 }}">Next Page</a></h2>
+{% endif %}
+<hr>
 <div style="max-width: 100%; height: auto; width: auto\9;">
 {% for pic in pics %}
   {% if '.mp4' in pic %}
@@ -13,3 +20,10 @@
   {% endif %}
 {% endfor %}
 </div>
+{% if page != 1 %}
+  <h2><a href="http://192.168.0.251:8000{{ url_for('home') }}/pics/{{ year }}_{{ month }}_{{ page - 1 }}">Previous Page</a></h2>
+{% endif %}
+{% if next_page %}
+  <h2><a href="http://192.168.0.251:8000{{ url_for('home') }}/pics/{{ year }}_{{ month }}_{{ page + 1 }}">Next Page</a></h2>
+{% endif %}
+
