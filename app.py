@@ -15,7 +15,7 @@ def home():
 def show_months(year):
     path = f'static/pictures/{year}/'
     my_filter = ['.DS_Store']
-    months = [month for month in os.listdir(path)  if month not in my_filter]
+    months = [month for month in os.listdir(path) if month not in my_filter]
     months.sort()
     return render_template('year.html', months=months, year=year)
 
@@ -27,5 +27,7 @@ def show_pics(period):
     path = f'static/pictures/{year}/{month}/'
     pics = os.listdir(path)
     path = f'pictures/{year}/{month}/'
-    pics = [path + pic for pic in pics]
+    my_filter = ['.DS_Store', '.mov']
+    pics = [path + pic for pic in pics
+            if not any(pic.endswith(f) for f in my_filter)]
     return render_template('pics.html', pics=pics)
