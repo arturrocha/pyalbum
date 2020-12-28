@@ -1,0 +1,9 @@
+<!doctype html>
+<title>pyalbum</title>
+<h1>PyAlbum!</h1>
+<h1> Years </h1>
+<h2>
+{% for year in years %}
+    <a href="http://192.168.0.251:8000{{ url_for('home') }}/year/{{ year }}">{{ year }}</a>
+{% endfor %}
+</h2>

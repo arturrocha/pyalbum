@@ -1,0 +1,8 @@
+<!doctype html>
+<title>Hello from Flask</title>
+<a href="http://192.168.0.251:8000/">Home</a>
+<div style="max-width: 100%; height: auto; width: auto\9;">
+{% for pic in pics %}
+<img src="{{ url_for('static', filename=pic) }}" width=400, height=300 alt="error">
+{% endfor %}
+</div>

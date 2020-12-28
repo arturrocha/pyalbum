@@ -1,0 +1,8 @@
+<!doctype html>
+<title>Hello from Flask</title>
+<h1> Year {{ year }} </h1>
+<h2>
+{% for month in months %}
+<a href="http://192.168.0.251:8000{{ url_for('home') }}/pics/{{ year }}_{{ month }}">{{ month }}</a>
+{% endfor %}
+</h2>
