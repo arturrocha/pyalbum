@@ -1,6 +1,9 @@
 <!doctype html>
-<title>Hello from Flask</title>
+<title>pyalbum</title>
+<h1>PyAlbum!</h1>
+<h1><a href="http://192.168.0.251:8000/">Home</a></h1>
 <h1> Year {{ year }} </h1>
+<hr>
 <h2>
 {% for month in months %}
 <a href="http://192.168.0.251:8000{{ url_for('home') }}/pics/{{ year }}_{{ month }}_1">{{ month }}</a>

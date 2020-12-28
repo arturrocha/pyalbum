@@ -1,6 +1,8 @@
 <!doctype html>
-<title>Hello from Flask</title>
+<title>pyalbum</title>
+<h1>PyAlbum!</h1>
 <h1><a href="http://192.168.0.251:8000/">Home</a></h1>
+<h2><a href="http://192.168.0.251:8000{{ url_for('home') }}/year/{{ year }}">{{ year }}</a></h2>
 {% if page != 1 %}
   <h2><a href="http://192.168.0.251:8000{{ url_for('home') }}/pics/{{ year }}_{{ month }}_{{ page - 1 }}">Previous Page</a></h2>
 {% endif %}
@@ -12,14 +14,16 @@
 {% for pic in pics %}
   {% if '.mp4' in pic %}
     <video width="400" controls>
-      <source src="{{ url_for('static', filename=pic) }}" type="video/mp4">
+      <source src="{{ url_for('static', filename=pic) }}" type="video/mp4" title="{{ url_for('static', filename=pic) }}">
       Your browser does not support HTML video.
     </video>
   {% else %}
-    <img src="{{ url_for('static', filename=pic) }}" width=400, height=300 alt="error">
+    <img src="{{ url_for('static', filename=pic) }}" width=400, height=300 alt="error" title="{{ url_for('static', filename=pic) }}">
   {% endif %}
 {% endfor %}
 </div>
+<hr>
+<h2><a href="http://192.168.0.251:8000{{ url_for('home') }}/year/{{ year }}">{{ year }}</a></h2>
 {% if page != 1 %}
   <h2><a href="http://192.168.0.251:8000{{ url_for('home') }}/pics/{{ year }}_{{ month }}_{{ page - 1 }}">Previous Page</a></h2>
 {% endif %}
