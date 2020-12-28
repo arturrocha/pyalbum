@@ -3,6 +3,13 @@
 <a href="http://192.168.0.251:8000/">Home</a>
 <div style="max-width: 100%; height: auto; width: auto\9;">
 {% for pic in pics %}
-<img src="{{ url_for('static', filename=pic) }}" width=400, height=300 alt="error">
+  {% if '.mp4' in pic %}
+    <video width="400" controls>
+      <source src="{{ url_for('static', filename=pic) }}" type="video/mp4">
+      Your browser does not support HTML video.
+    </video>
+  {% else %}
+    <img src="{{ url_for('static', filename=pic) }}" width=400, height=300 alt="error">
+  {% endif %}
 {% endfor %}
 </div>
