@@ -28,7 +28,7 @@ def show_pics(period):
     path = f'static/pictures/{year}/{month}/'
     pics = os.listdir(path)
     path = f'pictures/{year}/{month}/'
-    my_filter = ['.DS_Store', '.mov']
+    my_filter = ['.DS_Store', '.mov', '.MOV']
     end = (page * 20) -1
     start = end - 19
     pics = [path + pic for pic in pics
